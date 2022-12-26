@@ -18,6 +18,7 @@ rows.forEach((row) => {
     for (j = 0; j < grid; j++) {
         const cell = document.createElement('div');
         row.appendChild(cell);
+        cell.setAttribute('class', 'cells')
         cell.setAttribute('id', `${j+1}`);
     }
 });
