@@ -17,3 +17,7 @@
 .cells {
     width: 100%;
 }
+
+.black {
+    background-color: black;
+}
