@@ -1,27 +1,50 @@
 // grab container div
 const container = document.querySelector('.container');
 
-let grid = 16;
+// grab slider
+const slider = document.getElementById('slider');
 
-// make rows according to grid size
-for (i = 0; i < grid; i++) {
-    const row = document.createElement('div');
-    container.appendChild(row);
-    row.setAttribute('class', 'rows')
-    row.setAttribute('id', `${i+1}`);
+// update grid size text
+const gridSize = document.getElementById('gridSize');
+
+// initiate grid variable
+let grid = slider.value;
+
+printGridSize();
+
+// change grid size text based on input
+slider.oninput = function () {
+    printGridSize();
 }
 
-const rows = document.querySelectorAll('.rows');
+makeGrid();
 
-// make cells according to grid size on each row
-rows.forEach((row) => {
-    for (j = 0; j < grid; j++) {
-        const cell = document.createElement('div');
-        row.appendChild(cell);
-        cell.setAttribute('class', 'cells')
-        cell.setAttribute('id', `${j+1}`);
+// make a function to make the grid size text
+function printGridSize() {
+    gridSize.innerHTML = 'Grid size = ' + grid + 'x' + grid;
+}
+
+function makeGrid() {
+    // make rows according to grid size
+    for (i = 0; i < grid; i++) {
+        const row = document.createElement('div');
+        container.appendChild(row);
+        row.setAttribute('class', 'rows')
+        row.setAttribute('id', `${i+1}`);
     }
-});
+
+    const rows = document.querySelectorAll('.rows');
+
+    // make cells according to grid size on each row
+    rows.forEach((row) => {
+        for (j = 0; j < grid; j++) {
+            const cell = document.createElement('div');
+            row.appendChild(cell);
+            cell.setAttribute('class', 'cells')
+            cell.setAttribute('id', `${j+1}`);
+        }
+    });
+}
 
 const cells = document.querySelectorAll('.cells');
 
