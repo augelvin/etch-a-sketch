@@ -10,17 +10,29 @@ const gridSize = document.getElementById('gridSize');
 // initiate grid variable
 let grid = slider.value;
 
-printGridSize();
+printGridSize(grid);
 
 // change grid size text based on input
 slider.oninput = function () {
-    printGridSize();
+    printGridSize(this.value);
 }
 
 makeGrid();
 
+// update grid size according to input
+slider.addEventListener('input', () => {
+    
+    // remove the grid
+    removeAllChildNodes(container);
+
+    // make new grid
+    makeGrid();
+});
+
+
+
 // make a function to make the grid size text
-function printGridSize() {
+function printGridSize(grid) {
     gridSize.innerHTML = 'Grid size = ' + grid + 'x' + grid;
 }
 
@@ -56,3 +68,10 @@ cells.forEach((cell) => {
         cell.classList.add('black');
     });
 });
+
+// function to remove all children nodes
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
