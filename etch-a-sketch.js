@@ -56,3 +56,12 @@ cells.forEach((cell) => {
         cell.classList.add('black');
     });
 });
+
+
+// function to remove all children nodes
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
