@@ -50,19 +50,18 @@ function makeGrid(grid) {
             cell.setAttribute('id', `${j+1}`);
         }
     });
-}
 
-const cells = document.querySelectorAll('.cells');
+    const cells = document.querySelectorAll('.cells');
 
-// iterate through each cell to add an event listener
-cells.forEach((cell) => {
+        // iterate through each cell to add an event listener
+        cells.forEach((cell) => {
 
-    // mouseover listener to add class 'black'
-    cell.addEventListener('mouseover', () => {
-        cell.classList.add('black');
+        // mouseover listener to add class 'black'
+        cell.addEventListener('mouseover', () => {
+            cell.classList.add('black');
+        });
     });
-});
-
+}
 
 // function to remove all child nodes
 function removeAllChildNodes(parent) {
