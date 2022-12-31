@@ -8,7 +8,7 @@ const slider = document.getElementById('slider');
 const gridSize = document.getElementById('gridSize');
 
 // initiate grid variable
-let grid = slider.value;
+let grid = slider.value
 
 printGridSize(grid);
 
@@ -18,18 +18,6 @@ slider.oninput = function () {
 }
 
 makeGrid();
-
-// update grid size according to input
-slider.addEventListener('input', () => {
-    
-    // remove the grid
-    removeAllChildNodes(container);
-
-    // make new grid
-    makeGrid();
-});
-
-
 
 // make a function to make the grid size text
 function printGridSize(grid) {
@@ -68,10 +56,3 @@ cells.forEach((cell) => {
         cell.classList.add('black');
     });
 });
-
-// function to remove all children nodes
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
