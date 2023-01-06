@@ -25,6 +25,19 @@ slider.oninput = function () {
     makeGrid(this.value);
 }
 
+const clear = document.getElementById('clear');
+
+clear.onclick = function () {
+    // remove the grid
+    removeAllChildNodes(container);
+
+    makeGrid(slider.value);
+}
+
+
+
+
+
 // make a function to make the grid size text
 function printGridSize(grid) {
     gridSize.innerHTML = 'Grid size = ' + grid + 'x' + grid;
