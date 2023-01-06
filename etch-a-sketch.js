@@ -65,10 +65,17 @@ gridSize.onclick = function () {
 
 const rainbow = document.getElementById('rainbow');
 
+// event listener for rainbow button
 rainbow.onclick = function () {
-    random();
+    drawRandom();
 }
 
+const black = document.getElementById('black');
+
+// event listener for black button
+black.onclick = function () {
+    drawBlack();
+}
 
 
 
@@ -96,16 +103,7 @@ function makeGrid(grid) {
         }
     });
 
-    const cells = document.querySelectorAll('.cells');
-
-        // iterate through each cell to add an event listener
-        cells.forEach((cell) => {
-
-        // mouseover listener to add class 'black'
-        cell.addEventListener('mouseover', () => {
-            cell.style.backgroundColor = 'black';
-        });
-    });
+    drawBlack();
 }
 
 // function to remove all child nodes
@@ -115,7 +113,22 @@ function removeAllChildNodes(parent) {
     }
 }
 
-function random () {
+// function to draw with black
+function drawBlack () {
+    const cells = document.querySelectorAll('.cells');
+
+    // iterate through each cell to add an event listener
+    cells.forEach((cell) => {
+
+        // mouseover listener to add class 'black'
+        cell.addEventListener('mouseover', () => {
+            cell.style.backgroundColor = 'black';
+        });
+    });
+}
+
+// function to draw with random colors
+function drawRandom () {
     const cells = document.querySelectorAll('.cells');
 
     // iterate through each cell to add an event listener
