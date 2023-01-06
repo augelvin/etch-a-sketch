@@ -4,7 +4,7 @@ const container = document.querySelector('.container');
 // grab slider
 const slider = document.getElementById('slider');
 
-// update grid size text
+// grab grid size button
 const gridSize = document.getElementById('gridSize');
 
 // initiate grid variable
@@ -27,16 +27,41 @@ slider.oninput = function () {
 
 const clear = document.getElementById('clear');
 
+// clear grid
 clear.onclick = function () {
     // remove the grid
     removeAllChildNodes(container);
-
+    // make new grid
     makeGrid(slider.value);
 }
 
+// prompt input for grid size for the grid size button
+gridSize.onclick = function () {
+    
+    let promptInput = 16;
+    let valid = false;
+    
+    // prompt input
+    while (valid == false) {
+        promptInput = prompt('Enter desired grid size', '16');
+        if (promptInput < 16 || promptInput > 100) {
+            alert('Please enter a number between 16 and 100')
+        } else {
+            valid = true;
+        }
+    }
+    
+    printGridSize(promptInput);
 
+    // remove the grid
+    removeAllChildNodes(container);
 
+    // make new grid
+    makeGrid(promptInput);
 
+    // change slider value to match
+    slider.value = promptInput;
+}
 
 // make a function to make the grid size text
 function printGridSize(grid) {
