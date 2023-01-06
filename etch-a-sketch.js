@@ -74,7 +74,6 @@ function makeGrid(grid) {
         const row = document.createElement('div');
         container.appendChild(row);
         row.setAttribute('class', 'rows')
-        row.setAttribute('id', `${i+1}`);
     }
 
     const rows = document.querySelectorAll('.rows');
@@ -85,7 +84,6 @@ function makeGrid(grid) {
             const cell = document.createElement('div');
             row.appendChild(cell);
             cell.setAttribute('class', 'cells')
-            cell.setAttribute('id', `${j+1}`);
         }
     });
 
