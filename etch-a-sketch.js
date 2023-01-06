@@ -63,6 +63,15 @@ gridSize.onclick = function () {
     slider.value = promptInput;
 }
 
+const rainbow = document.getElementById('rainbow');
+
+rainbow.onclick = function () {
+    random();
+}
+
+
+
+
 // make a function to make the grid size text
 function printGridSize(grid) {
     gridSize.innerHTML = 'Grid size = ' + grid + 'x' + grid;
@@ -94,7 +103,7 @@ function makeGrid(grid) {
 
         // mouseover listener to add class 'black'
         cell.addEventListener('mouseover', () => {
-            cell.classList.add('black');
+            cell.style.backgroundColor = 'black';
         });
     });
 }
@@ -106,3 +115,16 @@ function removeAllChildNodes(parent) {
     }
 }
 
+function random () {
+    const cells = document.querySelectorAll('.cells');
+
+    // iterate through each cell to add an event listener
+    cells.forEach((cell) => {
+
+        // mouseover listener to add class 'black'
+        cell.addEventListener('mouseover', () => {
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            cell.style.backgroundColor = '#' + randomColor;
+        });
+    });
+}
